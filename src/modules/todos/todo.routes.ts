@@ -5,12 +5,12 @@ import {
     createTodoHandler,
     updateTodoHandler,
     deleteTodoHandler
-} from "./todo.controller";
+} from "./todo.controller.js";
 import {
     paramsSchema,
     createTodoSchema,
     updateTodoSchema
-} from "./todo.schema";
+} from "./todo.schema.js";
 
 const todoRoutes: FastifyPluginAsync = async (fastify, options) => {
     fastify.get("/", getTodosHandler);

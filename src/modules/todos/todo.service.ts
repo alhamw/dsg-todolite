@@ -9,7 +9,8 @@ export class TodoService {
     }
 
     async getTodoById(id: number) {
-        return await db.select().from(todos).where(eq(todos.id, id));
+        const result = await db.select().from(todos).where(eq(todos.id, id))
+        return result[0];
     }
 
     async createTodo(data: CreateTodoSchema) {

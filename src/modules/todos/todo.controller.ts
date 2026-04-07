@@ -1,6 +1,6 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { todoService } from "./todo.service";
-import { TodoParams, CreateTodoSchema, UpdateTodoSchema } from "./todo.schema";
+import { todoService } from "./todo.service.js";
+import { TodoParams, CreateTodoSchema, UpdateTodoSchema } from "./todo.schema.js";
 
 export async function getTodosHandler(request: FastifyRequest, reply: FastifyReply) {
     const data = await todoService.getTodos();

@@ -1,5 +1,5 @@
-import { db } from "../config/db";
-import { todos } from "./schema/todos";
+import { db } from "../config/db.js";
+import { todos } from "./schema/todos.js";
 
 async function seed() {
     console.log("Start Seeding....")
@@ -29,6 +29,6 @@ async function seed() {
 }
 
 seed().catch((e) => {
-    console.log("Seeding Failed: " + e)
+    console.error("Seeding Failed: " + e)
     process.exit(1)
 })
