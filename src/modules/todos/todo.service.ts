@@ -6,4 +6,8 @@ export class TodoService {
     async getTodos() {
         return await db.select().from(todos).orderBy(desc(todos.createdAt));
     }
+
+    async getTodoById(id: number) {
+        return await db.select().from(todos).where(eq(todos.id, id));
+    }
 }
