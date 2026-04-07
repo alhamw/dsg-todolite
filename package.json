@@ -1,7 +1,7 @@
 {
   "name": "dsg-todolite",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "description": "Todo application using Fastify, Drizzle ORM, and PostgreSQL.",
   "main": "dist/server.js",
   "scripts": {
@@ -21,7 +21,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/alhamw/dsg-todolite/issues"
   },
@@ -30,6 +29,7 @@
     "dotenv": "^17.4.1",
     "drizzle-orm": "^0.45.2",
     "fastify": "^5.8.4",
+    "fastify-type-provider-zod": "^6.1.0",
     "postgres": "^3.4.9",
     "zod": "^4.3.6"
   },
