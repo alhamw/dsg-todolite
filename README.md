@@ -2,7 +2,8 @@
 
 ## Overview
 
-Starting time: 2026-04-07 11:11 AM
+Starting time: 2026-04-07 11:11
+Finished time: 2026-04-07 14:16
 
 ## How to run this project
 
