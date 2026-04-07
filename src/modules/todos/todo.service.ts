@@ -1,7 +1,7 @@
-import { db } from "../../config/db.js";
-import { todos } from "../../db/schema/todos.js";
+import { db } from "../../config/db";
+import { todos } from "../../db/schema/todos";
 import { eq, desc } from "drizzle-orm";
-import { CreateTodoSchema, UpdateTodoSchema } from "./todo.schema.js";
+import { CreateTodoSchema, UpdateTodoSchema } from "./todo.schema";
 
 export class TodoService {
     async getTodos() {
@@ -23,6 +23,11 @@ export class TodoService {
             .set({ ...data, updatedAt: new Date() })
             .where(eq(todos.id, id))
             .returning()
+        return result[0];
+    }
+
+    async deleteTodo(id: number) {
+        const result = await db.delete(todos).where(eq(todos.id, id)).returning();
         return result[0];
     }
 }

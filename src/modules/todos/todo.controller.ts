@@ -1,6 +1,6 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { TodoService } from "./todo.service.js";
-import { TodoParams, CreateTodoSchema, UpdateTodoSchema } from "./todo.schema.js";
+import { TodoService } from "./todo.service";
+import { TodoParams, CreateTodoSchema, UpdateTodoSchema } from "./todo.schema";
 
 export async function getTodosHandler(request: FastifyRequest, reply: FastifyReply) {
     const todoService = new TodoService();
@@ -45,4 +45,19 @@ export async function updateTodoHandler(
     }
 
     return reply.status(200).send(data);
+}
+
+export async function deleteTodoHandler(
+    request: FastifyRequest<{ Params: TodoParams }>,
+    reply: FastifyReply
+) {
+    const todoService = new TodoService();
+    const { id } = request.params;
+    const data = await todoService.deleteTodo(id);
+
+    if (!data) {
+        return reply.status(404).send({ message: "Todo not found" });
+    }
+
+    return reply.status(204).send();
 }
