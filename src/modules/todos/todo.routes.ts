@@ -1,10 +1,8 @@
 import { FastifyPluginAsync } from "fastify";
-import { ZodTypeProvider } from "fastify-type-provider-zod";
+import { getTodosHandler } from "./todo.controller";
 
 const todoRoutes: FastifyPluginAsync = async (fastify, options) => {
-    fastify.get("/", async (request, reply) => {
-        return { message: "Hello World" };
-    });
+    fastify.get("/", getTodosHandler);
 };
 
 export default todoRoutes;
