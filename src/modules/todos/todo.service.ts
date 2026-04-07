@@ -31,3 +31,5 @@ export class TodoService {
         return result[0];
     }
 }
+
+export const todoService = new TodoService();
